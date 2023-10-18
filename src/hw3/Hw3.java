@@ -6,8 +6,6 @@ import java.util.Arrays;
 public class Hw3 {
 	
 	public static void main(String[] args) {
-		
-		
 		Scanner sc = new Scanner(System.in);
 		
 //		請設計一隻程式，使用者輸入三個數字後，輸出結果會為正三角形、等腰
@@ -34,7 +32,6 @@ public class Hw3 {
 //		(進階功能：產生0～100亂數，每次猜就會提示你是大於還是小於正確答案) 
 		
 		int num0_9 = (int)(Math.random()*10);
-//		System.out.println("正解" + num0_9);          //解答確認
 		System.out.println("請猜0~9一個數字");
 		while (true) {
 			int guess = sc.nextInt();
@@ -48,7 +45,6 @@ public class Hw3 {
 		System.out.println("======================================");
 		
 		int num0_100 = (int)(Math.random()*101);
-//		System.out.println("正解" + num0_100);        //解答確認
 		System.out.println("請猜0~100一個數字");
 		while (true) {
 			int guess = sc.nextInt();
