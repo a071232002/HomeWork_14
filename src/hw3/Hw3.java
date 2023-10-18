@@ -17,7 +17,9 @@ public class Hw3 {
 		double[] x = new double[3];
 		System.out.println("請輸入三個數字");
 		for (int i = 0; i< x.length; i++) {
+			if (sc.hasNextDouble()) {
 			x[i] = sc.nextDouble();
+			}
 		}
 		Arrays.sort(x);
 		System.out.print(x[0] + "\t");
