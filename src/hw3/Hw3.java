@@ -86,6 +86,14 @@ public class Hw3 {
 		System.out.println("總共" + getCountWihtoutInput(numInput) + "個");
 		System.out.println("======================================");
 		
+		int[] z = numrandom6(getCountWihtoutInput(numInput));
+		Arrays.sort(z);
+		System.out.println("隨機選號為:");
+		for ( int i = 0; i< 6; i++) {
+			int num = z[i];
+			System.out.print(y[num]+" ");
+		}
+		
 		sc.close();	
 	}
 	
@@ -95,7 +103,7 @@ public class Hw3 {
 			System.out.println("不是三角形");
 		} else if (a == b && a == c){
 			System.out.println("正三角形");
-		} else if (a == b || a == c) {
+		} else if (a == b || a == c || b== c) {
 			System.out.println("等腰三角形");
 		} else if (a*a +b*b == c*c) {
 			System.out.println("直角三角形");
@@ -104,12 +112,6 @@ public class Hw3 {
 		}
 	}
 	
-//	public double getNum() {
-//		Scanner input = new Scanner(System.in);
-//		System.out.println("請輸入一個數字:");
-//				double i = input.nextDouble();
-//				return i;	
-//	}
 	public static int getCountWihtoutInput (int numInput) {
 		int count = 0;
 		for (int i = 1; i <= 49; i++) {
@@ -118,5 +120,19 @@ public class Hw3 {
 			}
 		}
 		return count;
+	}
+	
+	public static int[] numrandom6 (int num) {
+		int [] x = new int [6];
+		for (int i = 0; i < 6; i++) {
+			x[i] = (int)(Math.random()*num);
+			for (int j = 0; j < i; j++) {
+				if (x[j] ==  x[i]) {
+					i--;
+					break;
+					} 
+				}
+			}
+		return x;
 	}
 }
