@@ -85,7 +85,6 @@ public class Hw3 {
 		System.out.println();
 		System.out.println("總共" + getCountWihtoutInput(numInput) + "個");
 		System.out.println("======================================");
-		System.out.println("master");
 		
 		sc.close();	
 	}
