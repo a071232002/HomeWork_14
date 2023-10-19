@@ -54,12 +54,15 @@ public class Hw3 {
 	}
 
 //	三角形判斷
-	public static void checkType(double a, double b, double c) {
-		double[] t = { a, b, c };
+	public static void checkType(double x, double y, double z) {
+		double[] t = { x, y, z};
 		Arrays.sort(t);
-		System.out.print(t[0] + "\t");
-		System.out.print(t[1] + "\t");
-		System.out.print(t[2] + "\t");
+		double a = t[0];
+		double b = t[1];
+		double c = t[2];
+		System.out.print(a + "\t");
+		System.out.print(b + "\t");
+		System.out.print(c + "\t");
 		System.out.println();
 		if (a + b <= c) {
 			System.out.println("不是三角形");
