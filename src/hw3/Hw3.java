@@ -107,7 +107,7 @@ public class Hw3 {
 			System.out.println("其他三角形");
 		}
 	}
-	
+//	取得排除input數字後的count數
 	public static int getCountWihtoutInput (int numInput) {
 		int count = 0;
 		for (int i = 1; i <= 49; i++) {
@@ -117,18 +117,18 @@ public class Hw3 {
 		}
 		return count;
 	}
-	
+//	母數num, 依序隨機抽樣6個數字存入x陣列, 若重複則重抽 
 	public static int[] numrandom6 (int num) {
 		int [] x = new int [6];
 		for (int i = 0; i < 6; i++) {
 			x[i] = (int)(Math.random()*num);
-			for (int j = 0; j < i; j++) {
+			for (int j = 0; j < i; j++) {          //已存入抽樣數的x[j], 依序與當前抽樣的x[i]做比對
 				if (x[j] ==  x[i]) {
 					i--;
 					break;
-					} 
-				}
+				} 
 			}
+		}
 		return x;
 	}
 }
