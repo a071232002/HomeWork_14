@@ -12,14 +12,7 @@ public class Hw3 {
 //		三角形、其它三角形或不是三角形，如圖示結果：
 //		(進階功能：加入直角三角形的判斷)
 
-		double[] x = new double[3];
-		System.out.println("請輸入三個數字");
-		for (int i = 0; i < x.length; i++) {
-			if (sc.hasNextDouble()) {
-				x[i] = sc.nextDouble();
-			}
-		}
-		checkType(x[0], x[1], x[2]);
+		checkType();
 
 //		請設計一隻程式，會亂數產生一個0～9的數字，然後可以玩猜數字遊戲，猜錯會顯示錯誤訊息，猜
 //		對則顯示正確訊息，如圖示結果：
@@ -33,37 +26,31 @@ public class Hw3 {
 //		的號碼與總數，如圖：
 //		(進階挑戰：輸入不要的數字後，直接亂數印出6個號碼且不得重複)
 
-		System.out.println("輸入一個1~9，不想要的數字");
-		int numInput = sc.nextInt();
-		selectRandom6WithoutInput(numInput);
+		selectRandom6WithoutInput();
 
-//		Q3嘗試判斷輸入值是否正確，錯誤則重新輸入
-//		System.out.println("輸入一個1~9，不想要的數字");
-//		int numInput = -1;
-//		while (true) {
-//			if (sc.hasNextInt()) {
-//				numInput = sc.nextInt();
-//				if (numInput >= 1 && numInput <= 9) {
-//					break;
-//				} else {
-//					System.out.println("輸入值有誤, 請重新輸入");
-//				}
-//			}
-//		}
 		sc.close();
 	}
 
 //	三角形判斷
-	public static void checkType(double x, double y, double z) {
-		double[] t = { x, y, z};
-		Arrays.sort(t);
-		double a = t[0];
-		double b = t[1];
-		double c = t[2];
-		System.out.print(a + "\t");
-		System.out.print(b + "\t");
-		System.out.print(c + "\t");
+	public static void checkType() {
+		Scanner sc = new Scanner(System.in);
+		double[] x = new double[3];
+		System.out.println("請輸入三個數字");
+		for (int i = 0; i < x.length; i++) {
+			if (sc.hasNextDouble()) {
+				x[i] = sc.nextDouble();
+			}
+		}
+		Arrays.sort(x);
+		for (int i = 0; i < x.length; i++) {
+			System.out.print(x[i] + "\t");
+		}
 		System.out.println();
+
+		double a = x[0];
+		double b = x[1];
+		double c = x[2];
+
 		if (a + b <= c) {
 			System.out.println("不是三角形");
 		} else if (a == b && a == c) {
@@ -114,70 +101,63 @@ public class Hw3 {
 		System.out.println("======================================");
 	}
 
-//	**********************************************************************************
-//	********************************第3題使用的方法群*************************************
-//	**********************************************************************************
-//	取得排除input數字後的陣列
-	public static int[] getNumWithoutInput(int numInput) {
+//	Q3整段程式碼設為一個方法, 也可將random6個號碼另外寫成方法, 可顯示多組亂數選號
+	
+	public static void selectRandom6WithoutInput() {
+		Scanner sc = new Scanner(System.in);
+		int[] numSelect = new int[49];
 		int count = 0;
-		int[] numSelect = new int[getCountWihtoutInput(numInput)];
+		int numHate = 0;
+
+		System.out.println("阿文...請輸入你討厭哪個數字？");
+		for (int i = 0; i < 1;) {
+			if (sc.hasNextInt()) {
+				numHate = sc.nextInt();
+				if (numHate >= 1 && numHate <= 9) {
+					i++;
+				}
+				System.out.println("輸入錯誤, 請重新輸入1~9之間的數字");
+				continue;
+			}
+		}
 
 		for (int i = 1; i <= 49; i++) {
-			if (i % 10 != numInput && i / 10 % 10 != numInput) {
+			if (i % 10 != numHate && i / 10 % 10 != numHate) {
 				numSelect[count] = i;
 				count++;
+				if (count % 6 == 0) {
+					System.out.print(numSelect[count - 1] + "\t");
+					System.out.println();
+				} else {
+					System.out.print(numSelect[count - 1] + "\t");
+				}
 			}
 		}
-		return numSelect;
-	}
+		System.out.println("總共" + count + "個");
+		System.out.println("======================================");
 
-//	取得排除input數字後的count數
-	public static int getCountWihtoutInput(int numInput) {
-		int count = 0;
-		for (int i = 1; i <= 49; i++) {
-			if (i % 10 != numInput && i / 10 % 10 != numInput) {
-				count++;
-			}
-		}
-		return count;
-	}
+//		顯示隨機選6個號碼不重覆結果: 若要產生多組選號, 需將以下另外寫成方法
+		int[] numRandom = new int[6];
 
-//	母數0~(n-1), 依序隨機抽樣6個數字存入new陣列, 若重複則重抽 => for 亂數抽取陣列索引值
-	public static int[] numrandom(int numSample) {
-		int[] numrandom = new int[6];
 		for (int i = 0; i < 6; i++) {
-			numrandom[i] = (int) (Math.random() * numSample);
-			for (int j = 0; j < i; j++) { // 已存入抽樣數的x[j], 依序與當前抽樣的x[i]做比對
-				if (numrandom[j] == numrandom[i]) {
+			numRandom[i] = (int) (Math.random() * count);
+			for (int j = 0; j < i; j++) {
+				if (numRandom[i] == numRandom[j]) {
 					i--;
 					break;
 				}
 			}
 		}
-		return numrandom;
-	}
-
-//	排除輸入數字後, print剩餘數字及共幾個, 並顯示隨機取樣6個數字
-	public static void selectRandom6WithoutInput(int numInput) {
-		int[] x = numrandom(getCountWihtoutInput(numInput));
-		Arrays.sort(x);
-		int[] numSelect = getNumWithoutInput(numInput);
-		for (int i = 0; i < getCountWihtoutInput(numInput); i++) {
-			if ((i + 1) % 6 == 0) {
-				System.out.print(numSelect[i] + "\t");
-				System.out.println();
-			} else {
-				System.out.print(numSelect[i] + "\t");
-			}
-		}
-		System.out.println("總共" + getCountWihtoutInput(numInput) + "個");
-		System.out.println("======================================");
+		Arrays.sort(numRandom);
+		
 		System.out.println("隨機選號為:");
 		for (int i = 0; i < 6; i++) {
-			System.out.print(numSelect[x[i]] + " ");
+			System.out.print(numSelect[numRandom[i]]+" ");
 		}
 	}
+
 }
+
 //	**********************************************************************************
 //	**********************************************************************************
 //	**********************************************************************************
