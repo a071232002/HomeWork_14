@@ -51,7 +51,9 @@ public class Hw3 {
 		double b = x[1];
 		double c = x[2];
 
-		if (a + b <= c) {
+		if (a <= 0 || b <= 0 || c <= 0) {
+			System.out.println("不是三角形");
+		} else if (a + b <= c) {
 			System.out.println("不是三角形");
 		} else if (a == b && a == c) {
 			System.out.println("正三角形");
@@ -102,7 +104,7 @@ public class Hw3 {
 	}
 
 //	Q3整段程式碼設為一個方法, 也可將random6個號碼另外寫成方法, 可顯示多組亂數選號
-	
+
 	public static void selectRandom6WithoutInput() {
 		Scanner sc = new Scanner(System.in);
 		int[] numSelect = new int[49];
@@ -149,10 +151,10 @@ public class Hw3 {
 			}
 		}
 		Arrays.sort(numRandom);
-		
+
 		System.out.println("隨機選號為:");
 		for (int i = 0; i < 6; i++) {
-			System.out.print(numSelect[numRandom[i]]+" ");
+			System.out.print(numSelect[numRandom[i]] + " ");
 		}
 	}
 
