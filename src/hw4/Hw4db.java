@@ -176,7 +176,7 @@ public class Hw4db {
 	}
 //		分數表比對確認
 	public void showScoreTable() {
-//		原始分數表(為排序)
+//		原始分數表(未排序)
 		for (int j = 0; j < 6; j++) {
 			for (int i = 0; i < 8; i++) {
 				System.out.print(scoreTable[j][i] + "\t");
@@ -185,7 +185,7 @@ public class Hw4db {
 		}
 		System.out.println("==========================================================");
 		
-//		分數排序驗證
+//		分數表排序驗證
 		for (int i = 0; i < 6; i++) {
 			scoreSort[i] = Arrays.copyOf(scoreTable[i], scoreTable[i].length);
 		}
@@ -210,7 +210,7 @@ public class Hw4db {
 		for (int i = 0; i < 6; i++) {
 			Arrays.sort(scoreSort[i]);
 		}
-//		分數表每Row若=最高分(排序後index的對應值), 則對應號碼同學times+1
+//		分數表每Row的值, 若等於最高分(排序後index end的對應值), 則對應號碼同學times+1
 		int[] times = new int[8];
 		for (int i = 0; i < 6; i++) {
 			for (int setNo = 0; setNo < 8; setNo++) {
