@@ -24,7 +24,7 @@ public class Hw4db {
 	private int[] daysInMonth = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 //	Q6
 	private int[][] scoreTable;
-	private int[][] scoreSort = new int[6][8];
+	private int[][] scoreSort;
 
 //	Q1**************************************************
 	public Hw4db(int... c) {
@@ -164,11 +164,12 @@ public class Hw4db {
 	}
 
 //	Q6****************************************************************************
-
+//設定分數表大小(科目數量, 人數)
 	public Hw4db(int testNo, int studentNo) {
 		scoreTable = new int[testNo][studentNo];
+		scoreSort = new int [testNo][studentNo];
 	}
-
+//套用可變引數機制(科目編號, 分數群........)
 	public void setTestScore(int testNo, int... score) {
 		for (int i = 0; i < score.length; i++) {
 			scoreTable[testNo - 1][i] = score[i];

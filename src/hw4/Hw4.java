@@ -43,8 +43,8 @@ public class Hw4 {
 
 		System.out.println("小華你想要多少？");
 
-		int money = sc.nextInt();
-		Hw4db q4 = new Hw4db(money);
+		int moneyYouWant = sc.nextInt();
+		Hw4db q4 = new Hw4db(moneyYouWant);
 
 		q4.setEmpno(25, 32, 8, 19, 27);
 		q4.setCash(2500, 800, 500, 1000, 1200);
@@ -68,7 +68,7 @@ public class Hw4 {
 		Hw4db q5 = new Hw4db(year, month, day);
 		q5.dayOfYear();
 		System.out.println("=============================");
-		
+
 //		班上有8位同學，他們進行了6次考試結果如下：
 //			1	2	3	4	5	6	7	8
 //		1考	10	35	40	100	90	85	75	70
@@ -78,6 +78,13 @@ public class Hw4 {
 //		5考	98	70	89	90	75	90	89	90
 //		6考	90	80	100	75	50	20	99	75
 //		請算出每位同學考最高分的次數
+
+//		分數表改用輸入方式建表
+//		System.out.println("請輸入科目數量");
+//		int testNo = sc.nextInt();
+//		System.out.println("請輸入學生人數");
+//		int studentNo = sc.nextInt();
+//		Hw4db q6 = new Hw4db(testNo, studentNo);
 
 		Hw4db q6 = new Hw4db(6, 8);
 		q6.setTestScore(1, 10, 35, 40, 100, 90, 85, 75, 70);
@@ -89,7 +96,7 @@ public class Hw4 {
 //		分數表確認用
 //		q6.showScoreTable();
 		q6.showTimesTopOne();
-		
+
 		sc.close();
 	}
 }
