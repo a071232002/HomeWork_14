@@ -134,7 +134,7 @@ public class Hw4db {
 //	Q5**************************************************************************
 
 	public Hw4db(int year, int month, int day) {
-		if (year % 4 == 0) {
+		if (year % 4 == 0 && year %100 != 0 || year % 400 == 0) {
 			daysInMonth[2] = 29;
 		}
 		while (true) {
