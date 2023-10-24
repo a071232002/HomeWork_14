@@ -96,7 +96,7 @@ public class Hw4 {
 //		分數表確認用
 //		q6.showScoreTable();
 		q6.showTimesTopOne();
-
+		
 		sc.close();
 	}
 }
