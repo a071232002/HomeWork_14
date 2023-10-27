@@ -81,14 +81,31 @@ public class Hw4db {
 		int count = 0;
 		for (int i = 0; i < wordXXX.length; i++) {
 			for (int j = 0; j < wordXXX[i].length(); j++) {
-				char w = wordXXX[i].charAt(j);
-				if (w == 'a' || w == 'e' || w == 'i' || w == 'o' || w == 'u') {
+				switch (wordXXX[i].charAt(j)) {
+				case 'a':
+				case 'e':
+				case 'i':
+				case 'o':
+				case 'u':
 					count++;
 				}
 			}
 		}
 		return count;
 	}
+//	public int getVowelCheck() {
+//
+//		int count = 0;
+//		for (int i = 0; i < wordXXX.length; i++) {
+//			for (int j = 0; j < wordXXX[i].length(); j++) {
+//				char w = wordXXX[i].charAt(j);
+//				if (w == 'a' || w == 'e' || w == 'i' || w == 'o' || w == 'u') {
+//					count++;
+//				}
+//			}
+//		}
+//		return count;
+//	}
 
 //	Q4****************************************************************************
 
@@ -112,7 +129,7 @@ public class Hw4db {
 //	現金資訊比對用
 	public void showCashTable() {
 		for (int j = 0; j < 2; j++) {
-			for (int i = 0; i <  moneyInfo[1].length; i++) {
+			for (int i = 0; i < moneyInfo[1].length; i++) {
 				System.out.print(moneyInfo[j][i] + "\t");
 			}
 			System.out.println();
@@ -135,11 +152,11 @@ public class Hw4db {
 //	Q5**************************************************************************
 
 	public Hw4db(int year, int month, int day) {
-		if ((year % 4 == 0 && year % 100 != 0)||(year % 400 == 0 && year % 4000 != 0 )) {
+		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0 && year % 4000 != 0)) {
 			daysInMonth[2] = 29;
 		}
 		while (true) {
-			if (day <= daysInMonth[month]) {
+			if (day <= daysInMonth[month] && day > 0 && month > 0 && month <= 12 && year > 0) {
 				break;
 			}
 			System.out.println("Error 日期大於該月份天數, 請重新輸入");
@@ -218,7 +235,7 @@ public class Hw4db {
 //		分數表每Row的值, 若等於最高分(排序後index end的對應值), 則對應號碼同學times+1
 		for (int i = 0; i < scoreTable.length; i++) {
 			for (int setNo = 0; setNo < scoreTable[0].length; setNo++) {
-				if (scoreTable[i][setNo] == scoreSort[i][scoreTable[0].length-1]) {
+				if (scoreTable[i][setNo] == scoreSort[i][scoreTable[0].length - 1]) {
 					times[setNo]++;
 				}
 			}
