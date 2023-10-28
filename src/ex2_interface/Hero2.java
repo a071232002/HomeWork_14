@@ -1,7 +1,5 @@
 package ex2_interface;
 
-import java.net.MulticastSocket;
-
 public class Hero2 {
 	// 省略 getter/setter...
 
