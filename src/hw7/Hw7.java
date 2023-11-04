@@ -10,11 +10,10 @@ public class Hw7 {
 //		Sample.txt檔案共有xxx個位元組，yyy個字元，zzz列資料
 
 		Hw7DataBase q1 = new Hw7DataBase();
-
+		
 		File myTxt = new File("C:/CHA104_Workspace/HomeWork_14/test/Sample.txt");
 		int numChar = q1.getCharCount(myTxt);
 		int numLine = q1.getLineCount(myTxt);
-
 		System.out.println(myTxt.length() + "位元組, " + numChar + "個字元, " + numLine + "列資料");
 		System.out.println("===========================================");
 

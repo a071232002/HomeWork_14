@@ -17,6 +17,7 @@ import java.util.List;
 public class Hw7DataBase {
 
 //	Q1
+	
 	public int getCharCount(File dir) throws IOException {
 		int charCount = 0;
 		String str;
@@ -32,11 +33,9 @@ public class Hw7DataBase {
 
 	public int getLineCount(File dir) throws IOException {
 		int lineCount = 0;
-		String str;
 		FileReader fr = new FileReader(dir);
 		BufferedReader br = new BufferedReader(fr);
-
-		while ((str = br.readLine()) != null) {
+		while (br.readLine() != null) {
 			lineCount++;
 		}
 		br.close();
