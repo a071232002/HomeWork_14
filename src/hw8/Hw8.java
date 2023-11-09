@@ -87,18 +87,18 @@ public class Hw8 {
 		Train t5 = new Train(122, "自強", "台中", "花蓮", 600);
 		Train t6 = new Train(1222, "區間", "樹林", "七堵", 300);
 		Train t7 = new Train(1254, "區間", "屏東", "基隆", 700);
-	
+
 		List<Train> tlist = new ArrayList<>();
 		tlist.addAll(Arrays.asList(t1, t2, t3, t4, t5, t6, t7));
-		
+
 		Set<Train> set = new HashSet<>();
 		set.addAll(Arrays.asList(t1, t2, t3, t4, t5, t6, t7));
-		
+
 		Set<Train> ts = new TreeSet<>();
 		ts.addAll(Arrays.asList(t1, t2, t3, t4, t5, t6, t7));
 
 //		• 請寫一隻程式，能印出不重複的Train物件
-		
+
 //		Set排除重複未排序, 透過foreach取值
 		System.out.println("• 請寫一隻程式，能印出不重複的Train物件");
 
@@ -106,28 +106,27 @@ public class Hw8 {
 			xxx.showInfo();
 		}
 		System.out.println("----------------------------------------------------------------------------");
-		
-		
+
 //		• 請寫一隻程式，讓Train物件印出時，能以班次編號由大到小印出
-		
+
 //		List集合只做sort排序, 不排除重複, 並使用for迴圈取值
 		System.out.println("• 請寫一隻程式，讓Train物件印出時，能以班次編號由大到小印出");
-		
+
 		Collections.sort(tlist);
-		for (int i = 0; i<tlist.size();i++) {
+		for (int i = 0; i < tlist.size(); i++) {
 			tlist.get(i).showInfo();
 		}
 		System.out.println("----------------------------------------------------------------------------");
-		
+
 //		• 承上，不僅能讓班次編號由大排到小印出， 還可以不重複印出Train物件
-		
+
 //		TreeSet透過compareTo排除重複並排序，並使用迭代器取值
 		System.out.println("• 請寫一隻程式，讓Train物件印出時，能以班次編號由大到小印出");
 		Iterator objsIII = ts.iterator();
 		while (objsIII.hasNext()) {
 			((Train) objsIII.next()).showInfo();
 		}
-		
+
 //		• (以上三題請根據使用的集合，練習各種取值寫法，如迭代器、for迴圈或foreach等)
 
 	}
